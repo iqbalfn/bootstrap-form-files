@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/themes/prism.min.css">
+    <link rel="stylesheet" href="css/bootstrap-form-files.css">
+
+    <title>Bootstrap Form Files</title>
+
+    <style>
+        h1{ margin-top: 80px; }
+        h2,h3{ margin-top: 40px; }
+        .example{ border: 4px solid #eee; margin-bottom:30px;}
+        .example-preview{ padding: 1.5rem; }
+        .example > pre{ border-top: 4px solid #eee;margin:0; }
+        .no-html{ display: none; }
+        .highlihgt-grid .row + .row{ margin-top: 1rem;}
+        .highlihgt-grid [class^="col-"]{
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            background-color: rgba(86,61,124,.15);
+            border: 1px solid rgba(86,61,124,.2);
+        }
+    </style>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-1746437125043617",
+              enable_page_level_ads: true
+         });
+    </script>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">Bootstrap Form Files</a>
+        <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarSupportedContent" data-toggle="collapse" type="button"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/iqbalfn/bootstrap-form-files">Github</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/iqbalfn/bootstrap-form-files/archive/master.zip">Download</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <h1>Form Files</h1>
+                <p class="lead">Use Bootstrap's JavaScript form files plugin to add JSON of collection of files info in one textarea ( invisible ) form control.</p>
+                
+                <p>All information about files collection including meta data ( if any ) of the files stored in a <code>&lt;textarea&gt;</code> element that is hidden from user. The data is in JSON array format. Any changes to the textarea value will be visualized to the file list to make it easy for user to modify file collection, but please note that changes to the value by js code should emit <code>change</code> event to get it work. See example below:</p>
+
+                <div class="example">
+                    <div class="example-preview source-code no-html" data-hl="js">
+                        $('#my-model').val(/* .. valid json array string .. */).change()
+                    </div>
+                </div>
+
+                <p>It's always better to call the plugins method to modify the data instead of modifying it by your self.</p>
+
+                <p>The plugin need to be initialized by your self.</p>
+
+                <p>This plugin do not handle file picker, or file upload. You need to define one function to generate the result of file pick in object type as of below:</p>
+
+                <div class="example">
+                    <div class="example-preview source-code no-html" data-hl="js">
+                        // file picker
+                        function pickAFile(cb, formfiles){
+                            cb({
+                                url: 'path/to/file',
+                                name: 'FileName.jpg',
+                                meta: '12MB',
+                                ...
+                            });
+                        }
+
+                        // and initilaize with
+                        $('#my-form-files').formfiles({
+                            filePicker: pickAFile
+                        })
+                    </div>
+                </div>
+
+                <p>Each file object require property <code>url</code>, <code>name</code>, and <code>meta</code>. If the saved data is in different format, you may need to provide <code>transform</code> property of option to format the data.</p>
+
+                <section>
+                    <h2>Examples</h2>
+                    <article>
+                        <section>
+                            <h3>Form Files Components</h3>
+
+                            <article>
+                                <p>Below is an example of form files component with preset multiple files info in it. You can add some file by clicking the <code>Add File</code> button.</p>
+
+                                <div class="example">
+                                    <div class="example-preview source-code" data-hl="html">
+                                        <div style="width:25rem">
+                                            <div class="form-group">
+                                                <label for="ff-1-add">Attachment</label>
+                                                <textarea name="files" class="formfiles-model" id="input-attachment"></textarea>
+                                                <div class="formfiles" id="ffs-1" data-model="#input-attachment">
+                                                    <ul class="formfiles-items"></ul>
+                                                    <button class="formfiles-btn-add btn btn-light btn-block" id="ff-1-add" type="button">Add File</button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <script>
+                                            document.addEventListener('DOMContentLoaded', function(){
+                                                // File picker function
+                                                var filePicker = function(cb){
+                                                    var file = {
+                                                        url     : prompt('File URL'),
+                                                        name    : prompt('File Name'),
+                                                        meta    : prompt('File Meta')
+                                                    }
+
+                                                    cb(file)
+                                                }
+
+                                                // Set model value
+                                                $('#input-attachment').val(JSON.stringify([
+                                                    {
+                                                        "url": "https://www.google.com",
+                                                        "name": "Global Image.png",
+                                                        "meta": "image/png"
+                                                    },{
+                                                        "url":"https://www.yahoo.com",
+                                                        "name": "Operational.docx",
+                                                        "meta": "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                                                    }]))
+
+                                                // Initilaize
+                                                $('#ffs-1').formfiles({
+                                                    filePicker: filePicker
+                                                })
+
+                                                // Listen for events
+                                                $('#ffs-1')
+                                                    .on('add.bs.formfiles', e => console.log('add'))
+                                                    .on('added.bs.formfiles', e => console.log('added'))
+                                                    .on('change.bs.formfiles', e => console.log('change'))
+                                                    .on('delete.bs.formfiles', e => console.log('delete'))
+                                                    .on('deleted.bs.formfiles', e => console.log('deleted'))
+                                                    .on('truncate.bs.formfiles', e => console.log('truncated'))
+                                            });
+                                        </script>
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+                    </article>
+                </section>
+
+                <section>
+                    <h2>Usage</h2>
+                    <article>
+                        <p>The form files plugin change the way user edit JSON array for file collections. It visualize the editing of the JSON content. Any change to the value of the textarea will update the editor.</p>
+
+                        <section>
+                            <h3>Via JavaScript</h3>
+                            <article>
+                                <p>Call a form files with id <code>myFormFiles</code> with a single line of JavaScript</p>
+
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#myFormFiles').formfiles(options);
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Options</h3>
+                            <article>
+                                <p>Options can be passed via data attributes or JavaScript. For data attributes, append the option name to <code>data-</code>, as in <code>data-btn-add-label=""</code>.</p>
+
+                                <table class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr><th>Name</th><th>Type</th><th>Default</th><th>Description</th></tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>filePicker</td>
+                                            <td>function</td>
+                                            <td>null</td>
+                                            <td>
+                                                <p>Function to call when user click the <code>Add file</code> button. You've to provide this function by your self. This module not provide any. If the value is a string, it will try to find it from <code>window</code> method.</p>
+                                                <p>The function get called with parameter function <code>cb</code> as the first argument, and object <code>formfiles</code> as the second argument.</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>transform</td>
+                                            <td>function</td>
+                                            <td><code>res => { return res }</code></td>
+                                            <td>
+                                                <p>Functiont o call to transform or to format item object to expected object format. This function get called with the only parameter is the item object.</p>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Methods</h3>
+
+                            <article>
+                                <h4><code>.formfiles(options)</code></h4>
+                                <p>Activate your content as a form files component. Accept an optional options <code>object</code>.</p>
+
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-form-files').formfiles({
+                                            filePicker : cb  => cb({...}),
+                                            transform  : res => res
+                                        })
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article>
+                                <h4><code>#.addItem({...})</code></h4>
+                                <p>Add new file to the collection with the only parameter is the item object.</p>
+
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-form-files')
+                                            .data('bs.formfiles')
+                                            .addItem({
+                                                url : '...',
+                                                name: '...',
+                                                meta: '...'
+                                            })
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article>
+                                <h4><code>#.removeItem(index)</code></h4>
+                                <p>Remove an item from collection by index number.</p>
+
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-form-files')
+                                            .data('bs.formfiles')
+                                            .removeItem(index)
+                                    </div>
+                                </div>
+                            </article>
+
+                            <article>
+                                <h4><code>#.truncate()</code></h4>
+                                <p>Remove all items from collection.</p>
+
+                                <div class="example">
+                                    <div class="example-preview source-code no-html" data-hl="js">
+                                        $('#my-form-files')
+                                            .data('bs.formfiles')
+                                            .truncate()
+                                    </div>
+                                </div>
+                            </article>
+                        </section>
+
+                        <section>
+                            <h3>Events</h3>
+                            <p>Bootstrap's form files class exposes a few events for hooking into form files functionality. All form files events are fired at the form files container itself (i.e at the <code>&lt;div class="form-files"&gt;</code>).</p>
+
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr><th>Event Type</th><th>Description</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>add.bs.formfiles</td>
+                                        <td>This event fires immediately when new file is about to add to the collection. It's when textarea value not yet change, and the view not yet updated.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>added.bs.formfiles</td>
+                                        <td>This event fires immediately when new file just added to the collection. It's when textarea value change, and the view already updated. The <code>change.bs.formfiles</code> called right after this.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>change.bs.formfiles</td>
+                                        <td>This event fires immediately when data in textarea changes. It's when textarea value already changed, and the view already updated.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>delete.bs.formfiles</td>
+                                        <td>This event fires immediately when a file is about to remove from the collection. It's when textarea value not yet change, and the view not yet updated.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>deleted.bs.formfiles</td>
+                                        <td>This event fires immediately when a file just removed from collection. It's when textarea value change, and the view already updated. The <code>change.bs.formfiles</code> called right after this.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>truncate.bs.formfiles</td>
+                                        <td>This event fires immediately when all files just removed from collection. It's when textarea value change, and the view already updated. The <code>change.bs.formfiles</code> called right after this.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                            <div class="example">
+                                <div class="example-preview source-code no-html" data-hl="js">
+                                    $('#my-form-files').on('added.bs.formfiles', function(e){
+                                        // do something...
+                                    })
+                                </div>
+                            </div>
+                        </section>
+
+                    </article>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.16.0/prism.min.js" data-manual></script>
+    <script src="js/source.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="js/bootstrap-form-files.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+$formfiles-padding-y:               $input-padding-y;
+$formfiles-padding-x:               $input-padding-x;
+$formfiles-font-family:             $input-font-family;
+$formfiles-font-size:               $input-font-size;
+$formfiles-font-weight:             $input-font-weight;
+$formfiles-line-height:             $input-line-height;
+$formfiles-color:                   $input-color;
+$formfiles-bg:                      $input-bg;
+$formfiles-border-width:            $input-border-width;
+$formfiles-border-color:            $input-border-color;
+$formfiles-height:                  25rem;
+$formfiles-border-radius:           $input-border-radius;
+$formfiles-box-shadow:              $input-box-shadow;
+
+$formfiles-item-hover-bg:           $gray-100;
+$formfiles-item-height-transition:  height .3s ease;
+$formfiles-item-height:             3.25rem;
+
+$formfiles-item-meta-font-size:     ($font-size-sm / 1.3);
+
+$formfiles-item-icon-size:          1.875rem;
+$formfiles-item-icon-margin-top:    0.313rem;
+$formfiles-item-icon-bg:            $gray-200;
+$formfiles-item-icon-image:         url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItZmlsZS10ZXh0Ij48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMC0yIDJ2MTZhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjh6Ij48L3BhdGg+PHBvbHlsaW5lIHBvaW50cz0iMTQgMiAxNCA4IDIwIDgiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiPjwvbGluZT48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyI+PC9saW5lPjxwb2x5bGluZSBwb2ludHM9IjEwIDkgOSA5IDggOSI+PC9wb2x5bGluZT48L3N2Zz4=');

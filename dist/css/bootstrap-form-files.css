@@ -1,0 +1,116 @@
+/*!
+ * Bootstrap Form Files v0.0.1 (https://iqbalfn.github.io/bootstrap-form-files/)
+ * Copyright 2019 Iqbal Fauzi
+ * Licensed under MIT (https://github.com/iqbalfn/bootstrap-form-files/blob/master/LICENSE)
+ */
+.formfiles-model {
+  display: none;
+}
+
+.formfiles {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1rem;
+  height: 25rem;
+  font-weight: 400;
+  line-height: 1.5;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.formfiles-btn-add {
+  border-left: 0 none;
+  border-bottom: 0 none;
+  border-right: 0 none;
+}
+
+.formfiles-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  -webkit-box-flex: 1;
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.formfiles-items > li {
+  position: relative;
+  overflow-y: hidden;
+  height: 3.25rem;
+}
+
+.formfiles-items > li:first-child > .formfiles-item {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.formfiles-items > li.slide-up {
+  -webkit-transition: height 0.3s ease;
+  transition: height 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .formfiles-items > li.slide-up {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+.formfiles-items > li.hide {
+  height: 0;
+}
+
+.formfiles-item {
+  display: block;
+  padding: 0.375rem 0.75rem;
+  text-decoration: none;
+  color: #495057;
+  position: relative;
+  padding-right: 2.25rem;
+}
+
+.formfiles-item:hover {
+  text-decoration: none;
+  background-color: #f8f9fa;
+}
+
+.formfiles-item-icon {
+  float: left;
+  width: 1.875rem;
+  height: 1.875rem;
+  margin-top: 0.313rem;
+  background-color: #eee;
+  margin-right: 0.75rem;
+  background: #e9ecef url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJmZWF0aGVyIGZlYXRoZXItZmlsZS10ZXh0Ij48cGF0aCBkPSJNMTQgMkg2YTIgMiAwIDAgMC0yIDJ2MTZhMiAyIDAgMCAwIDIgMmgxMmEyIDIgMCAwIDAgMi0yVjh6Ij48L3BhdGg+PHBvbHlsaW5lIHBvaW50cz0iMTQgMiAxNCA4IDIwIDgiPjwvcG9seWxpbmU+PGxpbmUgeDE9IjE2IiB5MT0iMTMiIHgyPSI4IiB5Mj0iMTMiPjwvbGluZT48bGluZSB4MT0iMTYiIHkxPSIxNyIgeDI9IjgiIHkyPSIxNyI+PC9saW5lPjxwb2x5bGluZSBwb2ludHM9IjEwIDkgOSA5IDggOSI+PC9wb2x5bGluZT48L3N2Zz4=") center center no-repeat;
+  background-size: 1rem 1rem;
+}
+
+.formfiles-item-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.formfiles-item-meta {
+  font-size: 0.673077rem;
+  opacity: .8;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.formfiles-item-remove {
+  position: absolute;
+  right: 0.75rem;
+  top: 0.375rem;
+}
+/*# sourceMappingURL=bootstrap-form-files.css.map */

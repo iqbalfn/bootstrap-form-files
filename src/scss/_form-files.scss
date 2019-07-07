@@ -1,0 +1,102 @@
+.formfiles-model{
+    display: none;
+}
+
+.formfiles{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    // padding: $formfiles-padding-y $formfiles-padding-x;
+    font-family: $formfiles-font-family;
+    @include font-size($formfiles-font-size);
+    height: $formfiles-height;
+    font-weight: $formfiles-font-weight;
+    line-height: $formfiles-line-height;
+    background-color: $formfiles-bg;
+    background-clip: padding-box;
+    border: $formfiles-border-width solid $formfiles-border-color;
+    @include border-radius($formfiles-border-radius, 0);
+    @include box-shadow($formfiles-box-shadow);
+}
+
+.formfiles-btn-add{
+    border-left: 0 none;
+    border-bottom: 0 none;
+    border-right: 0 none;
+}
+
+.formfiles-items{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    > li{
+        position: relative;
+        overflow-y: hidden;
+        height: $formfiles-item-height;
+
+        &:first-child{
+            > .formfiles-item{
+                @include border-top-radius($formfiles-border-radius);
+            }
+        }
+
+        &.slide-up{
+            @include transition($formfiles-item-height-transition);
+        }
+
+        &.hide{
+            height: 0;
+        }
+    }
+}
+
+.formfiles-item{
+    display: block;
+    padding: $formfiles-padding-y $formfiles-padding-x;
+    text-decoration: none;
+    color: $formfiles-color;
+    position: relative;
+    padding-right: ($formfiles-padding-x * 3);
+
+    &:hover{
+        text-decoration: none;
+        background-color: $formfiles-item-hover-bg;
+    }
+}
+
+.formfiles-item-icon{
+    float:left;
+    width: $formfiles-item-icon-size;
+    height: $formfiles-item-icon-size;
+    margin-top: $formfiles-item-icon-margin-top;
+    background-color: #eee;
+    margin-right: $formfiles-padding-x;
+    background: $formfiles-item-icon-bg $formfiles-item-icon-image center center no-repeat;
+    background-size: 1rem 1rem;
+}
+
+.formfiles-item-title{
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.formfiles-item-meta{
+    font-size: $formfiles-item-meta-font-size;
+    opacity: .8;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.formfiles-item-remove{
+    position: absolute;
+    right: $formfiles-padding-x;
+    top: $formfiles-padding-y;
+}
