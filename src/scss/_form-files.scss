@@ -75,8 +75,10 @@
     margin-top: $formfiles-item-icon-margin-top;
     background-color: #eee;
     margin-right: $formfiles-padding-x;
-    background: $formfiles-item-icon-bg $formfiles-item-icon-image center center no-repeat;
-    background-size: 1rem 1rem;
+    background-color: $formfiles-item-icon-bg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .formfiles-item-title{

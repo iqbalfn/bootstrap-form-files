@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap Form Files v0.0.1 (https://iqbalfn.github.io/bootstrap-form-files/)
+  * Bootstrap Form Files v0.0.2 (https://iqbalfn.github.io/bootstrap-form-files/)
   * Copyright 2019 Iqbal Fauzi
   * Licensed under MIT (https://github.com/iqbalfn/bootstrap-form-files/blob/master/LICENSE)
   */
@@ -223,7 +223,7 @@
    */
 
   var NAME = 'formfiles';
-  var VERSION = '0.0.1';
+  var VERSION = '0.0.2';
   var DATA_KEY = 'bs.formfiles';
   var EVENT_KEY = "." + DATA_KEY;
   var JQUERY_NO_CONFLICT = $.fn[NAME];
@@ -365,7 +365,8 @@
 
     _proto._drawItem = function _drawItem(item, index) {
       item = this._config.transform(item);
-      var tmpl = "\n            <li class=\"slide-up\">\n                <a href=\"" + item.url + "\" class=\"formfiles-item\" target=\"_blank\">\n                    <div class=\"formfiles-item-icon\"></div>\n                    <div class=\"formfiles-item-title\">" + item.name + "</div>\n                    <div class=\"formfiles-item-meta\">" + item.meta + "</div>\n                </a>\n                <button type=\"button\" class=\"close formfiles-item-remove\" aria-label=\"Close\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </li>";
+      var icon = item.icon || '<i class="fa fa-file-text-o" aria-hidden="true"></i>';
+      var tmpl = "\n            <li class=\"slide-up\">\n                <a href=\"" + item.url + "\" class=\"formfiles-item\" target=\"_blank\">\n                    <div class=\"formfiles-item-icon\">" + icon + "</div>\n                    <div class=\"formfiles-item-title\">" + item.name + "</div>\n                    <div class=\"formfiles-item-meta\">" + item.meta + "</div>\n                </a>\n                <button type=\"button\" class=\"close formfiles-item-remove\" aria-label=\"Close\">\n                    <span aria-hidden=\"true\">&times;</span>\n                </button>\n            </li>";
       $(tmpl).appendTo(this._items);
     };
 

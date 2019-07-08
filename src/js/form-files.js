@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap Form Files (v0.0.1): form-files.js
+ * Bootstrap Form Files (v0.0.2): form-files.js
  * --------------------------------------------------------------------------
  */
 
@@ -14,7 +14,7 @@ import Util from './util'
  */
 
  const NAME               = 'formfiles'
- const VERSION            = '0.0.1'
+ const VERSION            = '0.0.2'
  const DATA_KEY           = 'bs.formfiles'
  const EVENT_KEY          = `.${DATA_KEY}`
  const DATA_API_KEY       = '.data-api'
@@ -168,10 +168,12 @@ class FormFiles {
     _drawItem(item, index){
         item = this._config.transform(item)
 
+        let icon = item.icon || '<i class="fa fa-file-text-o" aria-hidden="true"></i>'
+
         let tmpl = `
             <li class="slide-up">
                 <a href="${item.url}" class="formfiles-item" target="_blank">
-                    <div class="formfiles-item-icon"></div>
+                    <div class="formfiles-item-icon">${icon}</div>
                     <div class="formfiles-item-title">${item.name}</div>
                     <div class="formfiles-item-meta">${item.meta}</div>
                 </a>
