@@ -1,5 +1,5 @@
 /*!
-  * Bootstrap Form Files v0.0.1 (https://iqbalfn.github.io/bootstrap-form-files/)
+  * Bootstrap Form Files v0.0.2 (https://iqbalfn.github.io/bootstrap-form-files/)
   * Copyright 2019 Iqbal Fauzi
   * Licensed under MIT (https://github.com/iqbalfn/bootstrap-form-files/blob/master/LICENSE)
   */
@@ -223,7 +223,7 @@
    */
 
   var NAME = 'formfiles';
-  var VERSION = '0.0.2';
+  var VERSION = '0.0.3';
   var DATA_KEY = 'bs.formfiles';
   var EVENT_KEY = "." + DATA_KEY;
   var JQUERY_NO_CONFLICT = $.fn[NAME];
@@ -313,7 +313,7 @@
 
       this._value.splice(index, 1);
 
-      this._model.value = JSON.stringify(this._value);
+      this._model.value = this._value.length ? JSON.stringify(this._value) : '';
       var itemEl = $(this._items).children()[index];
       itemEl.classList.add(ClassName.HIDE);
       var transitionDuration = Util.getTransitionDurationFromElement(itemEl);

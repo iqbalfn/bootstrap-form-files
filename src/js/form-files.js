@@ -1,6 +1,6 @@
 /**
  * --------------------------------------------------------------------------
- * Bootstrap Form Files (v0.0.2): form-files.js
+ * Bootstrap Form Files (v0.0.3): form-files.js
  * --------------------------------------------------------------------------
  */
 
@@ -14,7 +14,7 @@ import Util from './util'
  */
 
  const NAME               = 'formfiles'
- const VERSION            = '0.0.2'
+ const VERSION            = '0.0.3'
  const DATA_KEY           = 'bs.formfiles'
  const EVENT_KEY          = `.${DATA_KEY}`
  const DATA_API_KEY       = '.data-api'
@@ -113,7 +113,7 @@ class FormFiles {
 
         $(this._element).trigger(Event.DELETE, item)
         this._value.splice(index, 1)
-        this._model.value = JSON.stringify(this._value)
+        this._model.value = this._value.length ? JSON.stringify(this._value) : ''
 
         let itemEl = $(this._items).children()[index]
 

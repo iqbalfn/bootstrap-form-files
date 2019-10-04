@@ -1,5 +1,5 @@
 /*!
- * Bootstrap Form Files v0.0.1 (https://iqbalfn.github.io/bootstrap-form-files/)
+ * Bootstrap Form Files v0.0.2 (https://iqbalfn.github.io/bootstrap-form-files/)
  * Copyright 2019 Iqbal Fauzi
  * Licensed under MIT (https://github.com/iqbalfn/bootstrap-form-files/blob/master/LICENSE)
  */
@@ -8,7 +8,10 @@
 }
 
 .formfiles {
+  display: -webkit-box;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
   flex-direction: column;
   width: 100%;
   font-size: 1rem;
@@ -31,6 +34,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  -webkit-box-flex: 1;
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
@@ -48,11 +52,13 @@
 }
 
 .formfiles-items > li.slide-up {
+  -webkit-transition: height 0.3s ease;
   transition: height 0.3s ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .formfiles-items > li.slide-up {
+    -webkit-transition: none;
     transition: none;
   }
 }
@@ -83,8 +89,11 @@
   background-color: #eee;
   margin-right: 0.75rem;
   background-color: #e9ecef;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-align: center;
   align-items: center;
+  -webkit-box-pack: center;
   justify-content: center;
 }
 
@@ -109,5 +118,4 @@
   right: 0.75rem;
   top: 0.375rem;
 }
-
 /*# sourceMappingURL=bootstrap-form-files.css.map */
